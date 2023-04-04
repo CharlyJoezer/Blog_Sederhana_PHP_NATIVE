@@ -22,7 +22,7 @@ class PostController extends Controller{
         $finaldata = [
             'gambar' => $imageName,
             'caption' => $_POST['caption'],
-            'id_user' => $_SESSION['id'] ,
+            'user_id' => $_SESSION['id'] ,
         ];
 
         $model = new Postingan();
