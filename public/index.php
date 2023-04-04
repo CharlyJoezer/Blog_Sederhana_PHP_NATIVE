@@ -9,6 +9,7 @@ $methodHTTP = $_SERVER['REQUEST_METHOD'];
 
 // $getRoute = str_replace('/crud/public', '', $uri);
 
+// die();
 
 $obj = new Web($uri, $methodHTTP);
 

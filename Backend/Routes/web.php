@@ -2,58 +2,72 @@
 
 namespace Backend\Routes;
 
+use Exception;
 use HomeController;
 
 class Web{
 
     public function __construct($uri, $method){
-        switch($method){
-            case 'GET':
-                switch ($uri){
-                    case '/':
-                        if($_SESSION['login'] == false){
-                            header('Location: login');
-                        }
-                        $this->Route('HomeController', 'index');
-                    break;
-                
-                    case '/login':
-                        if(isset($_SESSION['login'])){
-                            header('Location: / ');
-                        }
-                        $this->Route('AuthController', 'index');
-                    break;
-                
-                    case '/logout':
-                        $this->Route('AuthController', 'logout');
-                    break;
-                        
-                    case '/register':
-                        $this->Route('AuthController', 'viewRegister');
-                    break;
-
-                    default:
-                    header('HTTP/1.1 404 Not Found');
-                    exit();
-                }
-            break;
-
-            case 'POST':
-                switch ($uri){
-                    case '/auth/login':
-                        $this->Route('AuthController', 'authLogin');
-                    break;
+        try{
+            switch($method){
+                case 'GET':
+                    switch ($uri){
+                        case '/':
+                            if($_SESSION['login'] == false){
+                                header('Location: login');
+                            }
+                            $this->Route('HomeController', 'index');
+                        break;
                     
-                    case '/auth/register':
-                        $this->Route('AuthController', 'authRegister');
-                    break;
-
-                    default:
-                    header('HTTP/1.1 404 Not Found');
-                    exit();
-                }
-            break;
-
+                        case '/login':
+                            if(isset($_SESSION['login'])){
+                                header('Location: / ');
+                            }
+                            $this->Route('AuthController', 'index');
+                        break;
+                    
+                        case '/logout':
+                            $this->Route('AuthController', 'logout');
+                        break;
+                            
+                        case '/register':
+                            $this->Route('AuthController', 'viewRegister');
+                        break;
+                            
+                        case '/postingan/image?image='.$_GET['image']:
+                            $this->Route('PostController', 'getImage');
+                        break;
+    
+                        default:
+                        header('HTTP/1.1 404 Not Found');
+                        exit();
+                    }
+                break;
+    
+                case 'POST':
+                    switch ($uri){
+                        case '/auth/login':
+                            $this->Route('AuthController', 'authLogin');
+                        break;
+                        
+                        case '/auth/register':
+                            $this->Route('AuthController', 'authRegister');
+                        break;
+                        
+                        case '/create/postingan':
+                            $this->Route('PostController', 'createPost');
+                        break;
+    
+                        default:
+                        header('HTTP/1.1 404 Not Found');
+                        exit();
+                    }
+                break;
+    
+            }
+        }catch(Exception $e){
+            $e->getMessage();
+            // header('HTTP/1.1 500 SERVER ERROR');
         }
     }
 
