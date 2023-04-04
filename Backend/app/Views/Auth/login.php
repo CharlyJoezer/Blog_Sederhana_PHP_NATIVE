@@ -19,15 +19,11 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" id="password" />
               </div>
-              <!-- <div class="mb-4">
-                <input type="checkbox" class="form-check-input" id="remember" />
-                <label for="remember" class="form-label">Remember Me</label>
-              </div> -->
               <div class="d-grid">
                 <button type="submit" class="btn text-light main-bg">Login</button>
               </div>
             </form>
-            <div class="link-register" style="text-align: center;padding-top:10px;">Belum punya akun ?, <a  href="/crud/public/register">Register</a></div>
+            <div class="link-register" style="text-align: center;padding-top:10px;">Belum punya akun ?, <a  href="/register">Register</a></div>
             
           </div>
         </div>

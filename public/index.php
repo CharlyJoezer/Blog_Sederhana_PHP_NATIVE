@@ -11,6 +11,10 @@ $methodHTTP = $_SERVER['REQUEST_METHOD'];
 
 // die();
 
+if(!isset($_GET['image'])){
+    $_GET['image'] = '';
+}
+
 $obj = new Web($uri, $methodHTTP);
 
 

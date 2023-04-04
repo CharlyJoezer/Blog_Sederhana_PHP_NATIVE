@@ -22,7 +22,7 @@
                 <button type="submit" class="btn text-light main-bg">Daftar</button>
               </div>
             </form>
-            <div class="link-register" style="text-align: center;padding-top:10px;">Suda punya akun ?, <a  href="/crud/public/login">Masuk</a></div>
+            <div class="link-register" style="text-align: center;padding-top:10px;">Suda punya akun ?, <a  href="/login">Masuk</a></div>
             
           </div>
         </div>
