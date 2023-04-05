@@ -36,6 +36,31 @@ class PostController extends Controller{
         echo $gambar_data;
         
     }
+
+    public function deletePost(){
+        if(!isset($_GET['delete'])){
+            header('HTTP/1.1 404 Not Found');
+            exit();
+        }
+        if(!preg_match('/^[a-zA-Z0-9]+$/', $_GET['delete']) || $_GET['delete'] == ''){
+            header('HTTP/1.1 404 Not Found');
+            exit();
+        }
+        $model = new Postingan();
+        $checkData = $model->customWhere("SELECT * FROM postingan WHERE id_postingan=".$_GET['delete']." AND user_id=".$_SESSION['id'])[0];
+        if(count($checkData) <= 0){
+            header('HTTP/1.1 404 Not Found');
+            exit();
+        }   
+        
+        $pathimage = "../Backend/Storage/image/".$checkData['gambar'];
+        unlink($pathimage);
+
+
+        $model->delete(['id_postingan', '=', $_GET['delete']]);
+        header('Location: /profil');
+        exit();
+    }
 }
 
 

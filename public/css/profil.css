@@ -116,6 +116,29 @@
     grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
     padding: 15px 10px;
 }
+.popup-delete{
+    position: absolute;
+    border-radius: 5px;
+    right: 0;
+    padding: 5px 12px;
+    background-color: red;
+    font-size: 15px;
+    display: none;
+}
+.popup-delete a{
+    color: white;
+    text-decoration: none;
+
+}
+.popup-delete:hover{
+    color: white;
+}
+.gear-option:hover .popup-delete{
+    display: block;
+}
+
+
+
 @media screen and (min-width: 700px){
     .box-post {
         width: 80%;

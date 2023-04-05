@@ -7,7 +7,7 @@ use HomeController;
 
 class Web{
 
-    public function __construct($uri, $method){
+    public function __construct($uri, $method, $query = ''){
             switch($method){
                 case 'GET':
                     switch ($uri){
@@ -33,12 +33,16 @@ class Web{
                             $this->Route('AuthController', 'viewRegister');
                         break;
                             
-                        case '/postingan/image?image='.$_GET['image']:
+                        case '/postingan/image':
                             $this->Route('PostController', 'getImage');
                         break;
                         
                         case '/profil':
                             $this->Route('UserController', 'index');
+                        break;
+                            
+                        case '/postingan/delete':
+                            $this->Route('PostController', 'deletePost');
                         break;
 
                         default:

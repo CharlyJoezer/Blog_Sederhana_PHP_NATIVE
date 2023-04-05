@@ -7,16 +7,14 @@ use Backend\Routes\web;
 $uri = $_SERVER['REQUEST_URI'];
 $methodHTTP = $_SERVER['REQUEST_METHOD'];
 
-// $getRoute = str_replace('/crud/public', '', $uri);
+parse_url($uri);
 
-// die();
 
-if(!isset($_GET['image'])){
-    $_GET['image'] = '';
+if(!isset($parseurl['query'])){
+    $parseurl['query'] = '';
 }
 
-$obj = new Web($uri, $methodHTTP);
-
+$obj = new Web($parseurl['path'], $methodHTTP, $parseurl['query']);
 
 
 ?>

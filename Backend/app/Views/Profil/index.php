@@ -21,7 +21,14 @@ require_once '../Backend/app/Views/Template/navbar.php';
             <div class="box-post">
                 <div class="post-header">
                     <div class="posted-by"><?= $item['username'] ?></div>
-                    <div style="cursor:pointer;"><i class="fa-solid fa-gear"></i></div>
+                    <div class="gear-option" style="cursor:pointer;position:relative;z-index:1;">
+                        <i class="fa-solid fa-gear"></i>
+                        <div class="popup-delete">
+                            <a href="/postingan/delete?delete=<?= $item['id_postingan'] ?>" class="d-flex align-items-center">
+                                <div>Hapus</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="post-image">
                     <img src="/postingan/image?image=<?= $item['gambar'] ?>" alt="">
