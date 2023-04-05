@@ -8,7 +8,6 @@ use HomeController;
 class Web{
 
     public function __construct($uri, $method){
-        try{
             switch($method){
                 case 'GET':
                     switch ($uri){
@@ -37,7 +36,11 @@ class Web{
                         case '/postingan/image?image='.$_GET['image']:
                             $this->Route('PostController', 'getImage');
                         break;
-    
+                        
+                        case '/profil':
+                            $this->Route('UserController', 'index');
+                        break;
+
                         default:
                         header('HTTP/1.1 404 Not Found');
                         exit();
@@ -65,10 +68,6 @@ class Web{
                 break;
     
             }
-        }catch(Exception $e){
-            $e->getMessage();
-            // header('HTTP/1.1 500 SERVER ERROR');
-        }
     }
 
 

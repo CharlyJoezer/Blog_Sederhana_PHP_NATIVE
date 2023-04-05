@@ -24,7 +24,7 @@
               <?= $auth['username'] ?>
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Profil Saya</a></li>
+              <li><a class="dropdown-item" href="/profil">Profil Saya</a></li>
               <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Buat Post</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
