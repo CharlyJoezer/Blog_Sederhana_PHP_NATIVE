@@ -47,7 +47,7 @@ class PostController extends Controller{
             exit();
         }
         $model = new Postingan();
-        $checkData = $model->customWhere("SELECT * FROM postingan WHERE id_postingan=".$_GET['delete']." AND user_id=".$_SESSION['id'])[0];
+        $checkData = $model->customWhere("SELECT * FROM postingan WHERE id_postingan=".$_GET['delete'])[0];
         if(count($checkData) <= 0){
             header('HTTP/1.1 404 Not Found');
             exit();
