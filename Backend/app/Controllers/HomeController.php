@@ -8,8 +8,6 @@ class HomeController extends Controller{
     public function index(){
         $model = new Postingan();
         $data = $model->getAll();
-        // var_dump($data);
-        // die();
         return Controller::view('Home/index', [
             'title' => 'Home',
             'css' => 'home',

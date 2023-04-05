@@ -7,7 +7,7 @@ require_once '../Backend/app/Views/Template/navbar.php';
     <div class="header-profil">
         <div class="profil-data">
             <div class="profil-image">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRePoVhTeaks5ESIWqL34k8BOO9Wh6UZdZECw&usqp=CAU" alt="">
+                <img src="https://i0.wp.com/dianisa.com/wp-content/uploads/2022/08/18.-Profil-WA-Kosong.jpg?resize=1000%2C580&ssl=1" alt="">
             </div>
             <div class="profil-name"><?= $auth['username'] ?></div>
         </div>
@@ -30,6 +30,7 @@ require_once '../Backend/app/Views/Template/navbar.php';
                 <div class="post-caption">
                     <div class="post-by"><?= $item['username'] ?></div>
                     <div class="caption-text"><?= $item['caption'] ?></div>
+                    <div class="post-time"><?= date('l j F Y H:i', strtotime($item['created_at']) )  ?></div>
                 </div>
                 <div class="post-info">
                     <div><i class="fa-regular fa-thumbs-up"></i> Likes</div>

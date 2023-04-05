@@ -16,7 +16,7 @@ class Postingan {
     }
 
     public function getAll(){
-        $this->db->query("SELECT id_user,id_postingan,gambar,caption,username FROM postingan JOIN users ON postingan.user_id = users.id_user ORDER BY id_postingan DESC");
+        $this->db->query("SELECT id_user,id_postingan,gambar,caption,username,postingan.created_at FROM postingan JOIN users ON postingan.user_id = users.id_user ORDER BY id_postingan DESC");
         $getData = $this->db->getAll();
         return $getData;
     }

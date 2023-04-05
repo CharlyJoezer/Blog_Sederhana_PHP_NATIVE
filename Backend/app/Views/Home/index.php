@@ -17,6 +17,7 @@
             <div class="post-caption">
               <div class="post-by"><?= $item['username'] ?></div>
               <div class="caption-text"><?= $item['caption'] ?></div>
+              <div class="post-time"><?= date('l j F Y H:i', strtotime($item['created_at']) )  ?></div>
             </div>
             <div class="post-info">
               <div><i class="fa-regular fa-thumbs-up"></i> Likes</div>
