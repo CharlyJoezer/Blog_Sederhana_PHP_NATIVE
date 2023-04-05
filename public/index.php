@@ -7,8 +7,7 @@ use Backend\Routes\web;
 $uri = $_SERVER['REQUEST_URI'];
 $methodHTTP = $_SERVER['REQUEST_METHOD'];
 
-parse_url($uri);
-
+$parseurl = parse_url($uri);
 
 if(!isset($parseurl['query'])){
     $parseurl['query'] = '';
