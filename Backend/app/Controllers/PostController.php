@@ -13,9 +13,19 @@ class PostController extends Controller{
             header('Location: ' . $_SERVER['HTTP_REFERER']); 
             exit();
         }
-        // MAKE RANDOM STRING FOR FILE NAME
+        $getImageExtension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+        if(
+            $getImageExtension != 'jpg' &&
+            $getImageExtension != 'jpeg' && 
+            $getImageExtension != 'gif' &&
+            $getImageExtension != 'png'
+            ){
+                header('Location: ' . $_SERVER['HTTP_REFERER']); 
+                exit();
+        }
+
         $imageName = hash("sha512", $_FILES['image']['name'] . str_replace(['-',':'], '', date("Y-m-d H:i:s")));
-        $imageName .= '.'.pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+        $imageName .= '.'.$getImageExtension;
         move_uploaded_file($_FILES['image']['tmp_name'], "../Backend/Storage/image/{$imageName}");
 
         $finaldata = [
