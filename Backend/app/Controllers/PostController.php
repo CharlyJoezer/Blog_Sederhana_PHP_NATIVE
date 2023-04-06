@@ -5,14 +5,23 @@ require_once '../Backend/app/Model/Postingan.php';
 
 class PostController extends Controller{
     public function createPost(){
-        if(!isset($_FILES['image']) && !isset($_POST['caption'])){
+        if(!isset($_FILES['image'])){
+            $_SESSION['message']['fail'] = 'Gambar tidak boleh kosong!';
             header('Location: ' . $_SERVER['HTTP_REFERER']);
             exit();
         }
-        if($_FILES['image']['name'] == '' && preg_match('/^[a-zA-Z0-9]+$/', $_POST['caption']) ){
-            header('Location: ' . $_SERVER['HTTP_REFERER']); 
+        if($_FILES['image']['name'] == ''){
+            $_SESSION['message']['fail'] = 'Gambar tidak ditemukan!';
+            header('Location: ' . $_SERVER['HTTP_REFERER']);
             exit();
         }
+        if(isset($_POST['caption'])){
+            $caption = $_POST['caption'];
+        }else{
+            $caption = '';
+        }
+
+
         $getImageExtension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
         if(
             $getImageExtension != 'jpg' &&
@@ -20,6 +29,7 @@ class PostController extends Controller{
             $getImageExtension != 'gif' &&
             $getImageExtension != 'png'
             ){
+                $_SESSION['message']['fail'] = 'Format gambar harus JPG, JPEG, PNG, GIF!';
                 header('Location: ' . $_SERVER['HTTP_REFERER']); 
                 exit();
         }
@@ -30,12 +40,13 @@ class PostController extends Controller{
 
         $finaldata = [
             'gambar' => $imageName,
-            'caption' => $_POST['caption'],
+            'caption' => $caption,
             'user_id' => $_SESSION['id'] ,
         ];
 
         $model = new Postingan();
         $model->create($finaldata);
+        $_SESSION['message']['success'] = 'Post Berhasil diposting!';
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit();
     }

@@ -24,15 +24,21 @@ class AuthController extends Controller{
                     $_SESSION["login"] = true;
                     $_SESSION["id"] = $getUser['id_user'];
                     $_SESSION["username"] = $username;
+                    $_SESSION['message']['success'] = 'Welcome';
                     header('Location: /');
+                    exit();
                 }else{
+                    $_SESSION['message']['fail'] = 'Username atau Password salah!';
                     header('Location: ' . $_SERVER['HTTP_REFERER']);
+                    exit();
                 }
             }else{
+                $_SESSION['message']['fail'] = 'Username atau Password salah!';
                 header('Location: ' . $_SERVER['HTTP_REFERER']);
                 exit();    
             }
         }else{
+            $_SESSION['message']['fail'] = 'Username atau Password salah!';
             header('Location: ' . $_SERVER['HTTP_REFERER']);
             exit();
         }
@@ -52,12 +58,16 @@ class AuthController extends Controller{
                 $_POST['password'] = hash("sha512", $_POST['password']); 
                 $model = new User;
                 $model->create($_POST);
+                $_SESSION['message']['success'] = 'Silahkan Login';
                 header('Location: ' . '/login');
+                exit();
             }else{
+                $_SESSION['message']['fail'] = 'Username tidak diperbolehkan!';
                 header('Location: ' . $_SERVER['HTTP_REFERER']);
                 exit();    
             }
         }else{
+            $_SESSION['message']['fail'] = 'Username atau Password tidak boleh kosong!';
             header('Location: ' . $_SERVER['HTTP_REFERER']);
             exit();
         }

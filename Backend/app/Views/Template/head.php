@@ -98,6 +98,30 @@
         50%{transform:translate(160%, 160%)}
         75%{transform:translate(0, 160%)}
       }
+      .notif{
+        background-color: rgb(0, 168, 180);
+        color: white;
+        border-radius: 3px;
+        padding: 18px 25px;
+        font-size: 13px;
+        font-weight: 500;
+        width: max-content;
+        position: fixed;
+        z-index: 9999;
+        top: 80px;
+        right: 0;
+        transform: translateX(100%);
+        transition: 0.5s ease-in-out;
+        opacity: 0.5;
+        animation-name: slidein;
+        display: flex;
+        align-items: center;
+      }
+
+      .notif.show-notif{
+        transform: translateX(-3%);
+        opacity: 1;
+      }
     </style>
   </head>
   <body>
