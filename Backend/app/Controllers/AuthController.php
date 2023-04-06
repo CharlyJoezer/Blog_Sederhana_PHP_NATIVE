@@ -54,7 +54,7 @@ class AuthController extends Controller{
         $username = (String)$_POST['username'];
         $password = (String)$_POST['password'];
         if($username != '' && $password != ''){
-            if(preg_match('/^[a-zA-Z0-9]+$/', $username) && preg_match('/^[a-zA-Z0-9]+$/', $username)){
+            if(preg_match('/^[a-zA-Z0-9]+$/', $username)){
                 $_POST['password'] = hash("sha512", $_POST['password']); 
                 $model = new User;
                 $model->create($_POST);
