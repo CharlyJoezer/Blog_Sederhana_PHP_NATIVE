@@ -9,7 +9,7 @@ body{
      box-shadow: 0 0 5px #ccc;
      position: sticky;
      top: 0;
-     z-index: 9999;
+     z-index: 2;
      font-weight: bold;
  }
  .navbar-brand{
@@ -66,7 +66,7 @@ body{
    opacity: 0;
    cursor: pointer;
  }
- body{background:#ECF0F1}
+ body{background:white}
  .wrapper-load{
    position: fixed;
    top: 0;
