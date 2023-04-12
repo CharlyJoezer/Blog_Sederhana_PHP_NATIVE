@@ -119,9 +119,9 @@ body{
    transform: translateX(-3%);
    opacity: 1;
  }
- @media screen and (min-width: 700px){
+ @media screen and (min-width: 600px){
      body{
-         width: 100%;
+         width: 50%;
          margin: 0 auto;
      }
      .navbar {
