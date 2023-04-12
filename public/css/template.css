@@ -1,8 +1,19 @@
+@font-face {
+     font-family: GB;
+     src: url(/fonts/Gotham_Book_Font.otf);
+}
+body{
+     font-family: GB!important;
+}
 .navbar{
      box-shadow: 0 0 5px #ccc;
      position: sticky;
      top: 0;
      z-index: 9999;
+     font-weight: bold;
+ }
+ .navbar-brand{
+     color: #555;
  }
  .input-gambar-label{
    width: 100%;
