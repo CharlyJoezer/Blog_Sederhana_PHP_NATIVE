@@ -2,12 +2,12 @@
 <?php require_once '../Backend/app/Views/Template/navbar.php' ?>
 
 <div class="content">
-  <div class="content-left">
     <div class="list-post">
 
       <?php foreach($data['post'] as $item): ?>
         <div class="box-post">
           <div class="post-header">
+            <img src="https://i0.wp.com/dianisa.com/wp-content/uploads/2022/08/18.-Profil-WA-Kosong.jpg?resize=1000%2C580&ssl=1" alt="">
             <div class="posted-by"><?= $item['username'] ?></div>
           </div>
           <div class="post-image">
@@ -28,11 +28,6 @@
       <?php endforeach;?>
 
     </div>
-
-  </div>
-  <!-- <div class="content-right">
-    RIGHT
-  </div> -->
 </div>
 
 <?php require_once '../Backend/app/Views/Template/footer.php' ?>

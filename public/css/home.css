@@ -1,23 +1,28 @@
-
 .content{
-    padding: 20px 15px;
     display: flex;
-    background-color: white;
+    overflow: hidden;
 }
 .content-left{
     width: 100%;
 }
 .box-post {
-    margin: 0 auto;
     width: 100%;
-    box-shadow: 0 0 8px #ccc;
+    box-shadow: 0 0 3px #ccc;
     background-color: white;
     margin-bottom: 20px;
-    border-radius: 5px;
 }
 .post-header{
-    padding: 10px 20px;
-    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    padding: 10px 7px;
+    font-size: 14px;
+}
+.post-header img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 5px;
 }
 .post-image{
     max-width: 100%;

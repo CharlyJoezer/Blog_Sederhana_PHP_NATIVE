@@ -11,6 +11,20 @@ require_once '../Backend/app/Views/Template/navbar.php';
             </div>
             <div class="profil-name"><?= $auth['username'] ?></div>
         </div>
+        <div class="info-account">
+            <div class="post-count">
+                <div class="count">0</div>
+                <div class="text-count">Postingan</div>
+            </div>
+            <div class="follower-count">
+                <div class="count">0</div>
+                <div class="text-count">Mengikuti</div>
+            </div>
+            <div class="follow-count">
+                <div class="count">0</div>
+                <div class="text-count">Diikuti</div>
+            </div>
+        </div>
     </div>
 
     <div class="wrapper-data-user">
@@ -20,7 +34,10 @@ require_once '../Backend/app/Views/Template/navbar.php';
             <?php foreach($data['post'] as $item): ?>
             <div class="box-post">
                 <div class="post-header">
-                    <div class="posted-by"><?= $item['username'] ?></div>
+                    <div class="posted-by">
+                    <img src="https://i0.wp.com/dianisa.com/wp-content/uploads/2022/08/18.-Profil-WA-Kosong.jpg?resize=1000%2C580&ssl=1" alt="">
+                    <div><?= $item['username'] ?></div>    
+                    </div>
                     <div class="gear-option" style="cursor:pointer;position:relative;z-index:1;">
                         <i class="fa-solid fa-gear"></i>
                         <div class="popup-delete">

@@ -1,6 +1,5 @@
-  <!-- NAVBAR -->
   <nav class="navbar bg-light" data-bs-theme="light">
-  <div class="container-fluid px-3">
+  <div class="container-fluid">
     <a class="navbar-brand d-flex" href="#">
       <img src="/asset/logo.png" width="18" alt="">
       <div>ostingan</div>
@@ -35,10 +34,6 @@
           </li>
         <?php endif;?>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
