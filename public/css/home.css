@@ -15,11 +15,11 @@
     display: flex;
     align-items: center;
     padding: 10px 7px;
-    font-size: 14px;
+    font-size: 16px;
 }
 .post-header img{
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 5px;

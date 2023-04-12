@@ -73,11 +73,11 @@
 .posted-by{
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 17px;
 }
 .posted-by img{
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 5px;
@@ -137,6 +137,9 @@
 }
 .popup-delete:hover{
     color: white;
+}
+.gear-option i {
+    font-size: 20px;
 }
 .gear-option:hover .popup-delete{
     display: block;
