@@ -1,18 +1,26 @@
-:root{
-    --main-bg:#009cd4;
+  :root{
+    --main-bg: white;
   }
-  
-  body{
-      background-color:  var(--main-bg);
+  @font-face {
+    font-family: GB;
+    src: url(/fonts/Gotham_Book_Font.otf);
   }
-  
+  * {
+    font-family: GB;
+  }
   .main-bg {
     background: var(--main-bg) !important;
   }
   
   input:focus, button:focus {
-    border: 1px solid var(--main-bg) !important;
-    box-shadow: none !important;
+    box-shadow: 0 0 1px rgb(0, 144, 205) !important;
+  }
+  .form-label {
+    font-size: 14px;
+  }
+  input{
+    font-size: 14px!important;
+    padding: 5px;
   }
   
   .form-check-input:checked {
@@ -20,6 +28,72 @@
     border-color: var(--main-bg) !important;
   }
   
-  .card, .btn, input{
-    border-radius:0 !important;
+  .btn, input{
+    border-radius:25px !important;
+  }
+
+  .container {
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0, 179, 255, 0.164)!important;
+    height: 100vh;`
+  }
+  .card {
+    box-shadow: 0 0 0 #ccc!important;
+    border: none!important;
+  }
+  .header-daftar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    background-color: transparent;
+  }
+  .header-daftar img {
+    width: 15px;
+    padding: 15px 0px;
+  }
+  .text-header-register{
+    font-weight: bold;
+    font-size: 25px;
+    padding: 10px 0px;
+    color: rgb(0, 152, 216);
+    background: linear-gradient(to top, rgb(0, 179, 255), rgb(0, 144, 205));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .btn{
+    background-color: rgb(0, 179, 255)!important;
+    border: none;
+    color: white!important;
+    font-weight: bold!important;
+    transition: 0.3s;
+    padding: 10px 0px;
+  }
+  .btn:hover{
+    background-color: rgb(0, 144, 205)!important;
+  }
+  .link-login{
+    font-size: 12px;
+  }
+
+  @media screen and (min-width: 0px){
+    body{
+      width: 100%!important;
+    }
+  }
+  @media screen and (min-width: 600px){
+    body{
+      width: 100%!important;
+    }
+    .container{
+      width: 45%;
+    }
+  }
+  @media screen and (min-width: 1000px){
+    body{
+      width: 100%!important;
+    }
+    .container{
+      width: 33%;
+    }
   }

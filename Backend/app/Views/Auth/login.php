@@ -20,11 +20,11 @@
             <form action="/auth/login" method="POST">
               <div class="mb-4">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" name="username" class="form-control" id="username" autocomplete="off" />
+                <input type="text" required name="username" class="form-control" id="username" autocomplete="off" />
               </div>
               <div class="mb-4">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="password" autocomplete="off" />
+                <input type="password" required name="password" class="form-control" id="password" autocomplete="off" />
               </div>
               <div class="d-grid">
                 <button type="submit" class="btn btn-primary text-dark main-bg">Masuk <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
