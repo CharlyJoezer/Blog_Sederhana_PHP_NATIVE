@@ -140,6 +140,8 @@
 }
 .gear-option i {
     font-size: 20px;
+    width: 20px;
+    text-align: center;
 }
 .gear-option:hover .popup-delete{
     display: block;

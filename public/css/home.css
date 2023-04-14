@@ -5,11 +5,16 @@
 .content-left{
     width: 100%;
 }
+.list-post{
+    width: 100%;
+    box-sizing: border-box;
+}
 .box-post {
     width: 100%;
     box-shadow: 0 0 3px #ccc;
     background-color: white;
     margin-bottom: 20px;
+    box-sizing: border-box;
 }
 .post-header{
     display: flex;
@@ -25,13 +30,13 @@
     margin-right: 5px;
 }
 .post-image{
-    max-width: 100%;
     box-sizing: border-box;
     overflow: hidden;
     padding: 0 5px;
 }
 .post-image img{
     object-fit: cover;
+    max-height: 350px;
     width: 100%;
 }
 

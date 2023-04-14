@@ -132,13 +132,12 @@ body{
          width: 100%;
      }
      .content{
-         padding: 20px 0px;
          box-shadow: 0 0 2px #ccc;
      }
  }
  @media screen and (min-width: 1000px){
      body{
-          width: 35%;
+          width: 30%;
           margin: 0 auto;
      }
      .box-post {

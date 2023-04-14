@@ -39,7 +39,7 @@ require_once '../Backend/app/Views/Template/navbar.php';
                     <div><?= $item['username'] ?></div>    
                     </div>
                     <div class="gear-option" style="cursor:pointer;position:relative;z-index:1;">
-                        <i class="fa-solid fa-gear"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
                         <div class="popup-delete">
                             <a href="/postingan/delete?delete=<?= $item['id_postingan'] ?>" class="d-flex align-items-center">
                                 <div>Hapus</div>
