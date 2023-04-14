@@ -32,7 +32,7 @@ class Web{
                         break;
                             
                         case '/register':
-                            if($_SESSION['login'] == true){
+                            if(isset($_SESSION['login']) == true){
                                 header('Location: /');
                                 exit();
                             }
