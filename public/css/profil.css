@@ -60,9 +60,10 @@
 .box-post {
     margin: 0 auto;
     width: 100%;
-    box-shadow: 0 0 3px #ccc;
+    border-top: 1px solid #eee;
     background-color: white;
     margin-bottom: 20px;
+    border-radius: 8px;
 }
 .post-header{
     display: flex;
@@ -90,7 +91,6 @@
 .post-image img{
     object-fit: cover;
     width: 100%;
-    padding: 0px 5px;
 }
 .post-caption{
     padding: 10px 10px;
@@ -105,13 +105,13 @@
 .post-info{
     display: flex;
     align-items: center;
-    flex-direction: row-reverse;
-    font-size: 12px;
-    border-top: 1px solid #ccc;
+    font-size: 20px;
+    border-bottom: 1px solid #eee;
     padding: 8px 12px;
 }
-.post-info div{
-    margin-right: 8px;
+.post-info i {
+    margin-right: 15px;
+    cursor: pointer;
 }
 .list-post{
     max-height: 100%;

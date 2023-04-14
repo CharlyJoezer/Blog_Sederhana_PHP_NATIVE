@@ -11,10 +11,11 @@
 }
 .box-post {
     width: 100%;
-    box-shadow: 0 0 3px #ccc;
+    border-top: 1px solid #eee;
     background-color: white;
     margin-bottom: 20px;
     box-sizing: border-box;
+    border-radius: 8px;
 }
 .post-header{
     display: flex;
@@ -32,7 +33,6 @@
 .post-image{
     box-sizing: border-box;
     overflow: hidden;
-    padding: 0 5px;
 }
 .post-image img{
     object-fit: cover;
@@ -53,13 +53,14 @@
 .post-info{
     display: flex;
     align-items: center;
-    flex-direction: row-reverse;
-    font-size: 12px;
-    border-top: 1px solid #ccc;
+    font-size: 22px;
+    border-bottom: 1px solid #eee;
     padding: 8px 12px;
+    color: #555;
 }
-.post-info div{
-    margin-right: 8px;
+.post-info i {
+    margin-right: 15px;
+    cursor: pointer;
 }
 .list-post{
     max-height: 100%;

@@ -51,14 +51,14 @@ require_once '../Backend/app/Views/Template/navbar.php';
                     <img src="/postingan/image?image=<?= $item['gambar'] ?>" alt="">
                 </div>
                 <div class="post-desc">
+                    <div class="post-info">
+                        <i class="fa-regular fa-heart"></i>        
+                        <i class="fa-regular fa-comment-dots"></i>      
+                    </div>
                 <div class="post-caption">
                     <div class="post-by"><?= $item['username'] ?></div>
                     <div class="caption-text"><?= $item['caption'] ?></div>
                     <div class="post-time"><?= date('l j F Y H:i', strtotime($item['created_at']) )  ?></div>
-                </div>
-                <div class="post-info">
-                    <div><i class="fa-regular fa-thumbs-up"></i> Likes</div>
-                    <div><i class="fa-solid fa-cloud-arrow-down"></i> Download</div>
                 </div>
                 </div>
             </div>
