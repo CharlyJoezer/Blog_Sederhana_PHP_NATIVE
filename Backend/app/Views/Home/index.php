@@ -15,7 +15,7 @@
           </div>
           <div class="post-desc">
             <div class="post-info">
-              <i class="fa-regular fa-heart"></i> 
+              <i class="fa-regular fa-heart" data-class="likes" data-status="false" attr_postingan="<?= $item['id_postingan'] ?>"></i> 
               <i class="fa-regular fa-comment-dots"></i>  
             </div>
             <div class="post-caption">

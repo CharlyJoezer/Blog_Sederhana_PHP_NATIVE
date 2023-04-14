@@ -82,6 +82,80 @@ class PostController extends Controller{
         header('Location: /profil');
         exit();
     }
+
+    public function likePostingan(){
+        if(!isset($_POST['status']) || !is_string($_POST['status']) || !ctype_alpha($_POST['status'])){
+            http_response_code(403);
+            echo json_encode(['message' => 'Payload status is not valid',
+                              'code' => 403,
+                              'status' => false
+                             ]);
+            exit();
+        }
+        if(!isset($_POST['id_postingan'])){
+            http_response_code(403);
+            echo json_encode(['message' => 'Payload id_postingan is not valid',
+                              'code' => 403,
+                              'status' => false
+                             ]);
+            exit();
+        }
+
+    
+        $model = new Postingan();
+        try{
+            $checkStatus = $model->checkStatusLike($_POST);
+        }catch(Exception){
+            http_response_code(500);
+            echo json_encode(['message' => 'Server is not responding!',
+                              'code' => 404,
+                              'status' => false,
+                              'where' => 'Like Post'
+                             ]);
+            exit();
+        }
+
+        if($checkStatus == false && $_POST['status'] == 'false'){
+            try{
+                $model->likePost($_POST);
+            }catch(Exception){
+                http_response_code(500);
+                echo json_encode(['message' => 'Server is not responding!',
+                                  'code' => 404,
+                                  'status' => false,
+                                  'where' => 'Like Post'
+                                 ]);
+                exit();
+            }
+        }elseif(isset($checkStatus) && $_POST['status'] == 'true'){
+            try{
+                $model->unlikePost($_POST);
+            }catch(Exception){
+                http_response_code(500);
+                echo json_encode(['message' => 'Server is not responding!',
+                                  'code' => 404,
+                                  'status' => false,
+                                  'where' => 'Like Post'
+                                 ]);
+                exit();
+            }
+        }else{
+            http_response_code(404);
+            echo json_encode(['message' => 'Terjadi Kesalahan!',
+                              'code' => 404,
+                              'status' => false
+                             ]);
+            exit();
+        }
+
+        
+        http_response_code(200);
+        echo json_encode(['message' => 'Request success!',
+                          'code' => 200,
+                          'status' => true
+                         ]);
+        exit();
+    }
 }
 
 

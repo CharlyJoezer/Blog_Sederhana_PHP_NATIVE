@@ -91,6 +91,17 @@ class Web{
                             }
                             $this->Route('PostController', 'createPost');
                         break;
+
+
+                        // API
+                        case '/api/send/like-postingan':
+                            if(!isset($_SESSION['login'])){
+                                header("HTTP/1.1 403 Forbidden");
+                                echo json_encode(['status' => false, 'code' => '403 Forbidden']);
+                                exit();
+                            }
+                            $this->Route('PostController', 'likePostingan');
+                        break;
     
                         default:
                         header('HTTP/1.1 404 Not Found');

@@ -1,7 +1,7 @@
 <?php 
 require_once '../Backend/Database/Connection.php';
 
-class Postingan {
+class Postingan{
     protected $db;
     
     public function __construct()
@@ -46,6 +46,29 @@ class Postingan {
         $query = "DELETE FROM postingan WHERE {$data[0]} $data[1] :find";
         $this->db->query($query);
         $this->db->bind('find', $data[2]);
+        $this->db->execute();
+    }
+
+    public function checkStatusLike($data){
+        $this->db->query("SELECT * FROM like_postingan WHERE userlike_id=:userlike AND postingan_id=:postingan_id");
+        $this->db->bind('postingan_id', $data['id_postingan']);
+        $this->db->bind('userlike', $_SESSION['id']);
+        $this->db->execute();
+        return $this->db->single();
+    }
+
+    public function likePost($data){
+        $this->db->query("INSERT INTO like_postingan (postingan_id ,userlike_id)
+        VALUES (:postingan_id, :userlike);");
+        $this->db->bind('postingan_id', $data['id_postingan']);
+        $this->db->bind('userlike', $_SESSION['id']);
+        $this->db->execute();
+    }
+
+    public function unlikePost($data){
+        $this->db->query("DELETE FROM like_postingan WHERE userlike_id=:userlike AND postingan_id=:postingan_id");
+        $this->db->bind('postingan_id', $data['id_postingan']);
+        $this->db->bind('userlike', $_SESSION['id']);
         $this->db->execute();
     }
 }
