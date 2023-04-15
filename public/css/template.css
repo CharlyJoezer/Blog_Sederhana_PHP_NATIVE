@@ -4,6 +4,8 @@
 }
 body{
      font-family: GB!important;
+     min-height: 100vh;
+     box-shadow: 0 0 3px #aaa;
 }
 .navbar{
   position: sticky;
@@ -137,9 +139,6 @@ body{
      }
      .box-post {
          width: 100%;
-     }
-     .content{
-         box-shadow: 0 0 2px #ccc;
      }
  }
  @media screen and (min-width: 1000px){
