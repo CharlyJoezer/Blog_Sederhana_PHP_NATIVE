@@ -60,10 +60,9 @@
 .box-post {
     margin: 0 auto;
     width: 100%;
-    border-top: 1px solid #eee;
+    box-shadow: 0 0 3px #ccc;
     background-color: white;
-    margin-bottom: 20px;
-    border-radius: 8px;
+    box-sizing: border-box;
 }
 .post-header{
     display: flex;
@@ -87,8 +86,10 @@
     max-width: 100%;
     box-sizing: border-box;
     overflow: hidden;
+    padding: 3px;
 }
 .post-image img{
+    border-radius: 3px;
     object-fit: cover;
     width: 100%;
 }
@@ -105,7 +106,7 @@
 .post-info{
     display: flex;
     align-items: center;
-    font-size: 20px;
+    font-size: 25px;
     border-bottom: 1px solid #eee;
     padding: 8px 12px;
 }

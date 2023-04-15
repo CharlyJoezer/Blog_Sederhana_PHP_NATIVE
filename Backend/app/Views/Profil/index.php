@@ -28,7 +28,7 @@ require_once '../Backend/app/Views/Template/navbar.php';
     </div>
 
     <div class="wrapper-data-user">
-        <div class="header-data-user">Postingan Kamu</div>
+        <div class="header-data-user"><i class="fa-regular fa-image"></i></div>
         <div class="list-post">
 
             <?php foreach($data['post'] as $item): ?>

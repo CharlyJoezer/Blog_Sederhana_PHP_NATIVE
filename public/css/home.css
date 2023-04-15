@@ -10,12 +10,11 @@
     box-sizing: border-box;
 }
 .box-post {
+    margin: 0 auto;
     width: 100%;
-    border-top: 1px solid #eee;
+    box-shadow: 0 0 3px #ccc;
     background-color: white;
-    margin-bottom: 20px;
     box-sizing: border-box;
-    border-radius: 8px;
 }
 .post-header{
     display: flex;
@@ -33,10 +32,12 @@
 .post-image{
     box-sizing: border-box;
     overflow: hidden;
+    padding: 3px;
 }
 .post-image img{
+    border-radius: 3px;
     object-fit: cover;
-    max-height: 350px;
+    max-height: 450px;
     width: 100%;
 }
 

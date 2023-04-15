@@ -15,6 +15,11 @@ body{
  }
  .navbar-brand{
      color: #555;
+     font-size: 16px;
+     align-items: center;
+ }
+ .navbar-brand img {
+  width: 16px;
  }
  .input-gambar-label{
    width: 100%;
