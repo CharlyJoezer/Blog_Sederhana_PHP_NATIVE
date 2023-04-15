@@ -89,13 +89,21 @@ class PostController extends Controller{
             echo json_encode(['message' => 'Payload status is not valid',
                               'code' => 403,
                               'status' => false
-                             ]);
-            exit();
-        }
+                            ]);
+        exit();
+        }   
         if(!isset($_POST['id_postingan'])){
             http_response_code(403);
             echo json_encode(['message' => 'Payload id_postingan is not valid',
                               'code' => 403,
+                              'status' => false
+                             ]);
+            exit();
+        }
+        if(!isset($_SESSION['login'])){
+            http_response_code(401);
+            echo json_encode(['message' => 'Auth required',
+                              'code' => 401,
                               'status' => false
                              ]);
             exit();

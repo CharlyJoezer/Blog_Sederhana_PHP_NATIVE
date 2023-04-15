@@ -52,7 +52,7 @@
       $(this).addClass('fa-regular fa-heart')
       $(this).css('color', 'black')
     }
-
+    const thisElement = $(this)
     $.ajax({
       url : '/api/send/like-postingan',
       method : 'POST',
@@ -61,9 +61,28 @@
         status : sp,
         id_postingan : id_postingan
       },
+      statusCode: {
+        401: function(){
+          thisElement.removeClass('fa-solid fa-heart')
+          thisElement.addClass('fa-regular fa-heart')
+          thisElement.css('color', 'black')
+          $('body').append(`
+            <div class="notif" style="background-color:red;">
+              Anda belum login!
+            </div>
+          `)
+          setTimeout(() => {
+            $('.notif').addClass('show-notif')
+          }, 1);
+          setTimeout(() => {
+              $('.notif').removeClass('show-notif')
+          }, 5000);
+        }
+      },
       error: function(xhr, status, error) {
           console.error("Server Not Responding!");
       }
+      
     })
   })
 

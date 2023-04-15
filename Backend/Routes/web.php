@@ -96,8 +96,8 @@ class Web{
                         // API
                         case '/api/send/like-postingan':
                             if(!isset($_SESSION['login'])){
-                                header("HTTP/1.1 403 Forbidden");
-                                echo json_encode(['status' => false, 'code' => '403 Forbidden']);
+                                header("HTTP/1.1 401 Unauthorized");
+                                echo json_encode(['status' => false, 'code' => '401 Unauthorized']);
                                 exit();
                             }
                             $this->Route('PostController', 'likePostingan');
