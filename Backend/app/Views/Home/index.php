@@ -15,7 +15,11 @@
           </div>
           <div class="post-desc">
             <div class="post-info">
-              <i class="fa-regular fa-heart" data-class="likes" data-status="false" attr_postingan="<?= $item['id_postingan'] ?>"></i> 
+              <?php if(!isset($item['id_like'])):?>
+                <i class="fa-regular fa-heart" data-class="likes" data-status="false" attr_postingan="<?= $item['id_postingan'] ?>"></i> 
+              <?php else:?>
+                <i class="fa-solid fa-heart" style="color:red;" data-class="likes" data-status="true" attr_postingan="<?= $item['id_postingan'] ?>"></i> 
+              <?php endif;?>
               <i class="fa-regular fa-comment-dots"></i>  
             </div>
             <div class="post-caption">
