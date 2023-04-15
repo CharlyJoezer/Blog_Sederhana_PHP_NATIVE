@@ -11,10 +11,19 @@ class UserController extends Controller{
             exit();
         }
         $model = new Postingan;
-        $data = $model->customWhere("SELECT id_user,id_postingan,gambar,caption,username,postingan.created_at FROM postingan JOIN users ON postingan.user_id = users.id_user WHERE user_id={$_SESSION['id']} ORDER BY id_postingan DESC");
+        $data = $model->customWhere("SELECT id_postingan,
+                                            user_id,
+                                            like_postingan.userlike_id,
+                                            gambar,
+                                            caption,
+                                            users.username,
+                                            postingan.created_at
+                                            FROM postingan 
+                                     JOIN users ON users.id_user=postingan.user_id
+                                     LEFT OUTER JOIN like_postingan ON like_postingan.postingan_id=postingan.id_postingan AND like_postingan.userlike_id={$_SESSION['id']}
+                                     WHERE user_id={$_SESSION['id']}
+                                     ORDER BY id_postingan DESC");
 
-        // var_dump($data);
-        // die();
         return Controller::view('profil/index',[
             'title' => 'Profil Saya',
             'css'   => 'profil',
