@@ -38,7 +38,10 @@ $("div").find(`[data-class='likes']`).click(function(){
              $('.notif').addClass('show-notif')
            }, 1);
            setTimeout(() => {
-               $('.notif').removeClass('show-notif')
+              $('.notif').removeClass('show-notif')
+              setTimeout(() => {
+                 $('.notif').remove()
+              }, 500)
            }, 5000);
          }
        },
