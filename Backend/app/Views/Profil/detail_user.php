@@ -25,6 +25,19 @@ require_once '../Backend/app/Views/Template/navbar.php';
                 <div class="text-count">Diikuti</div>
             </div>
         </div>
+        <?php if(isset($_SESSION['login'])):?>
+            <?php if($data['user']['id_user'] != $_SESSION['id']):?>
+                <?php if($data['user']['id_pengikut'] == null):?>
+                    <div class="w-bf">
+                        <div class="bf" id="bf" attr_id="<?= $data['user']['id_user'] ?>"><i class="fa-solid fa-user-plus"></i>Ikuti</div>
+                    </div>
+                <?php else:?>
+                    <div class="w-bf">
+                        <div class="bf already" id="bf" attr_id="<?= $data['user']['id_user'] ?>"><i class="fa-solid fa-user-minus"></i>Hapus</div>
+                    </div>
+                <?php endif;?>
+            <?php endif;?>
+    <?php endif;?>
     </div>
 
     <div class="wrapper-data-user">
@@ -42,7 +55,7 @@ require_once '../Backend/app/Views/Template/navbar.php';
 </div>
 
 
-<script src="/js/postingan_event.js"></script>
+<script type="text/javascript" src="/js/detail_profil.js"></script>
 <?php 
 require_once '../Backend/app/Views/Template/footer.php';
 ?>

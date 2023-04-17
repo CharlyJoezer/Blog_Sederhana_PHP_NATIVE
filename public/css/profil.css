@@ -159,3 +159,36 @@
 .gear-option:hover .popup-delete{
     display: block;
 }
+
+
+/* DETAIL USER */
+.w-bf {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+}
+.w-bf .bf {
+    width: 40%;
+    margin: 0 auto;
+    padding: 10px 2px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(0, 179, 255);
+    box-sizing: border-box;
+    transition: 0.2s;
+}
+.w-bf .bf i {
+    margin-right: 3px;
+}
+.w-bf .bf:hover{
+    background-color: rgb(0, 144, 205);
+}
+.w-bf .bf.already{
+    background-color: red;
+    color: white;
+}
+.w-bf .bf.already:hover{
+    background-color: rgb(214, 0, 0);
+}

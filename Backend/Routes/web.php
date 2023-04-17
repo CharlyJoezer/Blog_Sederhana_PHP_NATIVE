@@ -110,7 +110,14 @@ class Web{
                             }
                             $this->Route('PostController', 'likePostingan');
                         break;
-    
+                            
+                        case '/api/follow':
+                            if(!isset($_SESSION['login'])){
+                                header("HTTP/1.1 401 Unauthorized");
+                                echo json_encode(['status' => false, 'code' => '401 Unauthorized']);
+                                exit();
+                            }
+                            $this->Route('UserController', 'apiFollow');
                         default:
                         header('HTTP/1.1 404 Not Found');
                         exit();

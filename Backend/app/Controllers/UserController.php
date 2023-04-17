@@ -3,6 +3,7 @@
 require_once 'Controller.php';
 require_once '../Backend/app/Model/Postingan.php';
 require_once '../Backend/app/Model/User.php';
+require_once '../Backend/app/Model/Pengikut.php';
 
 class UserController extends Controller{
     
@@ -48,6 +49,100 @@ class UserController extends Controller{
             'user'  => $getUser,
             'post'  => $getPost
         ]);
+    }
+
+    public function apiFollow(){
+        if(!isset($_POST['id'])){
+            http_response_code(404);
+            echo json_encode(['message' => "Data Not valid",
+                'code' => 404,
+                'status' => false
+                            ]);
+                exit();
+        }
+        if(!is_numeric($_POST['id'])){
+            http_response_code(404);
+            echo json_encode(['message' => "Data Not valid",
+                'code' => 404,
+                'status' => false
+                            ]);
+                exit();
+        }
+        if($_POST['id'] === $_SESSION['id']){
+            http_response_code(404);
+            echo json_encode(['message' => "You can't follow your own",
+                'code' => 404,
+                'status' => false
+                            ]);
+                exit();
+        }
+
+        $model = new User;
+        $pengikut = new Pengikut;
+        if(isset($_SESSION['id'])){
+            try{
+                $checkTwoUser = $model->getTwoUser($_POST['id'], $_SESSION['id']);
+            }catch(Exception){
+                http_response_code(500);
+                echo json_encode(['message' => 'Server Error',
+                    'code' => 500,
+                    'status' => false
+                                ]);
+                    exit();
+            }
+            if(count($checkTwoUser) == 2){
+                $checkAlreadyFollow = $pengikut->getFollowing($_SESSION['id'], $_POST['id']);
+                if($checkAlreadyFollow == false){
+                    try{
+                        $pengikut->insertFollowing($checkTwoUser);
+                    }catch(Exception){
+                        http_response_code(500);
+                        echo json_encode(['message' => 'Server Error',
+                            'code' => 500,
+                            'status' => false
+                                        ]);
+                            exit();
+                    }
+                    http_response_code(200);
+                    echo json_encode(['message' => 'Success',
+                        'code' => 200,
+                        'status' => true
+                                    ]);
+                        exit();
+                }else{
+                    try{
+                        $pengikut->deleteFollowing($checkTwoUser);
+                    }catch(Exception){
+                        http_response_code(500);
+                        echo json_encode(['message' => 'Server Error',
+                            'code' => 500,
+                            'status' => false
+                                        ]);
+                            exit();
+                    }
+                    http_response_code(200);
+                    echo json_encode(['message' => 'You Already Following this user!',
+                    'code' => 200,
+                    'status' => false
+                                ]);
+                    exit();
+                }
+            }else{
+                http_response_code(401);
+                echo json_encode(['message' => 'Login required',
+                'code' => 401,
+                'status' => false
+                            ]);
+                exit();
+            }
+        }else{
+            http_response_code(401);
+            echo json_encode(['message' => 'Login required',
+                              'code' => 401,
+                              'status' => false
+                            ]);
+            exit();
+        }
     }
 
 }

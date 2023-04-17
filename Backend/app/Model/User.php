@@ -32,10 +32,19 @@ class User{
     }
 
     public function getUser($id){
-        $this->db->query("SELECT id_user,username,role,foto_profil,created_at FROM users WHERE id_user=:id");
+        $this->db->query("SELECT id_user,username,role,foto_profil,id_pengikut FROM users
+                           LEFT OUTER JOIN pengikut ON pengikut.mengikuti_id={$_SESSION['id']} AND pengikut.diikuti_id=:id WHERE id_user=:id");
         $this->db->bind('id', $id);
         $this->db->execute();
         return $this->db->single();
+    }
+
+    public function getTwoUser($id1, $id2){
+        $this->db->query("SELECT id_user FROM users WHERE id_user=:id1 OR id_user=:id2");
+        $this->db->bind('id1', $id1);
+        $this->db->bind('id2', $id2);
+        $this->db->execute();
+        return $this->db->getAll();
     }
 }
 
