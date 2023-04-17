@@ -164,6 +164,32 @@ class PostController extends Controller{
                          ]);
         exit();
     }
+
+    public function detailPostingan(){
+        if(!isset($_GET['post'])){
+            header('HTTP/1.1 404 Not Found');
+            exit();
+        }
+        if(!is_numeric($_GET['post'])){
+            header('HTTP/1.1 404 Not Found');
+            exit();
+        }
+        $id_post = $_GET['post'];
+        $model = new Postingan;
+        try{
+            $data = $model->getDetailPostingan($id_post);
+        }catch(Exception){
+            http_response_code(500);
+            header('HTTP/1.1 500 SERVER ERROR');
+            exit();
+        }
+
+        return Controller::view('profil/detail_post',[
+            'title' => "@{$data['username']} {$data['caption']} | Postingan",
+            'css'   => 'detail_post',
+            'post'  => $data
+        ]);
+    }
 }
 
 

@@ -31,11 +31,11 @@ require_once '../Backend/app/Views/Template/navbar.php';
         <div class="header-data-user"><i class="fa-regular fa-image"></i></div>
         <div class="list-post">
             <?php foreach($data['post'] as $item): ?>
-                <div class="box-post">
+                <a class="box-post" href="/postingan/detail?post=<?= $item['id_postingan'] ?>">
                     <div class="post-image">
                         <img src="/postingan/image?image=<?= $item['gambar'] ?>" alt="image" >
                     </div>
-                </div>
+                </a>
             <?php endforeach;?>
         </div>
     </div>

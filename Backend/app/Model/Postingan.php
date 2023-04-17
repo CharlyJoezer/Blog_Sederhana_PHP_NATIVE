@@ -79,6 +79,23 @@ class Postingan{
         $this->db->bind('userlike', $_SESSION['id']);
         $this->db->execute();
     }
+
+    public function getDetailPostingan($id_post){
+        $this->db->query("SELECT id_postingan,
+                                user_id,
+                                like_postingan.userlike_id,
+                                gambar,
+                                caption,
+                                users.username,
+                                postingan.created_at
+                                FROM postingan 
+                        JOIN users ON users.id_user=postingan.user_id
+                        LEFT OUTER JOIN like_postingan ON like_postingan.postingan_id=postingan.id_postingan AND like_postingan.userlike_id={$_SESSION['id']}
+                        WHERE id_postingan=:id_post");
+        $this->db->bind('id_post', $id_post);
+        $this->db->execute();
+        return $this->db->single();
+    }
 }
 
 

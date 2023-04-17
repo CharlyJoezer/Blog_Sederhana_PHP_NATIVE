@@ -59,6 +59,10 @@ class Web{
                             $this->Route('PostController', 'deletePost');
                         break;
 
+                        case '/postingan/detail':
+                            $this->Route('PostController', 'detailPostingan');
+                        break;
+
                         default:
                         header('HTTP/1.1 404 Not Found');
                         exit();
