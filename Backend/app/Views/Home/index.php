@@ -32,7 +32,7 @@
           </div>
         </div>
 
-        <div style="height: 1px;box-sizing:border-box;margin:2px 12px;background-color:#ddd;"></div>
+        <div style="height: 1px;box-sizing:border-box;margin:15px 12px;background-color:#eee;"></div>
 
       <?php endforeach;?>
 
