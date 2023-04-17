@@ -30,6 +30,13 @@ class User{
         $getData = $this->db->single();
         return $getData;
     }
+
+    public function getUser($id){
+        $this->db->query("SELECT id_user,username,role,foto_profil,created_at FROM users WHERE id_user=:id");
+        $this->db->bind('id', $id);
+        $this->db->execute();
+        return $this->db->single();
+    }
 }
 
 ?>

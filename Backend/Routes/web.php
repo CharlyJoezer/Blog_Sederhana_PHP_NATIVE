@@ -63,6 +63,10 @@ class Web{
                             $this->Route('PostController', 'detailPostingan');
                         break;
 
+                        case '/profil/user':
+                            $this->Route('UserController', 'viewProfilUser');
+                        break;
+
                         default:
                         header('HTTP/1.1 404 Not Found');
                         exit();
