@@ -6,6 +6,7 @@ body{
      font-family: GB!important;
      min-height: 100vh;
      box-shadow: 0 0 3px #aaa;
+     overflow-y: scroll;
 }
 .navbar{
   position: sticky;
