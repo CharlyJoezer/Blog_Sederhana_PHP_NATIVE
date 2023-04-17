@@ -29,6 +29,9 @@
             </div>
           </div>
         </div>
+
+        <div style="height: 1px;box-sizing:border-box;margin:2px 12px;background-color:#ddd;"></div>
+
       <?php endforeach;?>
 
     </div>
