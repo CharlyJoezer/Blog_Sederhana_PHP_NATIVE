@@ -15,7 +15,7 @@ class UserController extends Controller{
                                             user_id,
                                             gambar
                                             FROM postingan 
-                                     WHERE user_id.={$_SESSION['id']}
+                                     WHERE user_id={$_SESSION['id']}
                                      ORDER BY id_postingan DESC");
 
         return Controller::view('profil/index',[
