@@ -7,7 +7,6 @@
     padding: 10px 12px;
     box-sizing: border-box;
     background-size: cover;
-    border-bottom: 1px solid #ddd;
 }
 .profil-image{
     text-align: center;
@@ -37,6 +36,7 @@
 .header-data-user{
     padding: 8px 0px;
     text-align: center;  
+    border-bottom: 2px solid #eee;
 }
 .profil-data{
     margin-bottom: 10px;
@@ -126,7 +126,7 @@
     grid-template-columns: repeat(3, 1fr);
     row-gap: 2px;
     column-gap: 2px;
-    padding: 0px 2px;
+    padding: 2px 2px;
 }
 .post-time{
     padding-top: 15px;
