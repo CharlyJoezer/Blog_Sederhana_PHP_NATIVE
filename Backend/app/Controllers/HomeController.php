@@ -9,7 +9,7 @@ class HomeController extends Controller{
         $model = new Postingan();
         $data = $model->getAll();
         return Controller::view('Home/index', [
-            'title' => 'Home',
+            'title' => 'Home | Postingan',
             'css' => 'home',
             'post' => $data
         ]);
