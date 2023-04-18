@@ -94,7 +94,7 @@ class UserController extends Controller{
                 $checkAlreadyFollow = $pengikut->getFollowing($_SESSION['id'], $_POST['id']);
                 if($checkAlreadyFollow == false){
                     try{
-                        $pengikut->insertFollowing($checkTwoUser);
+                        $pengikut->insertFollowing($_SESSION['id'], $_POST['id']);
                     }catch(Exception){
                         http_response_code(500);
                         echo json_encode(['message' => 'Server Error',

@@ -10,10 +10,10 @@ class Pengikut{
         $this->db = new Connection;
     }
     
-    public function insertFollowing($data){
+    public function insertFollowing($id1, $id2){
         $this->db->query('INSERT INTO pengikut (mengikuti_id, diikuti_id) VALUES(:mengikuti, :diikuti)');
-        $this->db->bind('mengikuti', $data[0]['id_user']);
-        $this->db->bind('diikuti', $data[1]['id_user']);
+        $this->db->bind('mengikuti', $id1);
+        $this->db->bind('diikuti', $id2);
         $this->db->execute();
      }
      public function deleteFollowing($data){
