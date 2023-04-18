@@ -98,7 +98,7 @@ class Postingan{
     }
 
     public function getUserPostingan($id){
-        $this->db->query("SELECT id_postingan,user_id,gambar FROM postingan WHERE user_id=:id");
+        $this->db->query("SELECT id_postingan,user_id,gambar FROM postingan WHERE user_id=:id ORDER BY id_postingan DESC");
         $this->db->bind('id', $id);
         $this->db->execute();
         return $this->db->getAll();
