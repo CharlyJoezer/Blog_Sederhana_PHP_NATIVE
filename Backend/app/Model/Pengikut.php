@@ -16,10 +16,10 @@ class Pengikut{
         $this->db->bind('diikuti', $id2);
         $this->db->execute();
      }
-     public function deleteFollowing($data){
+     public function deleteFollowing($id1, $id2){
           $this->db->query('DELETE FROM pengikut WHERE mengikuti_id=:id1 AND diikuti_id=:id2');
-          $this->db->bind('id1', $data[0]['id_user']);
-          $this->db->bind('id2', $data[1]['id_user']);
+          $this->db->bind('id1', $id1);
+          $this->db->bind('id2', $id2);
           $this->db->execute();
      }
      public function getFollowing($id1, $id2){

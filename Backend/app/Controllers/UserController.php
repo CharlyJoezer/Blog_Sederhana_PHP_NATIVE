@@ -111,7 +111,7 @@ class UserController extends Controller{
                         exit();
                 }else{
                     try{
-                        $pengikut->deleteFollowing($checkTwoUser);
+                        $pengikut->deleteFollowing($_SESSION['id'], $_POST['id']);
                     }catch(Exception){
                         http_response_code(500);
                         echo json_encode(['message' => 'Server Error',
