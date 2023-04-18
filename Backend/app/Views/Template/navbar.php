@@ -1,6 +1,6 @@
   <nav class="navbar bg-light" data-bs-theme="light">
   <div class="container-fluid">
-    <a class="navbar-brand d-flex" href="#">
+    <a class="navbar-brand d-flex" href="/">
       <img src="/asset/logo.png" width="18" alt="">
       <div>ostingan</div>
     </a>
