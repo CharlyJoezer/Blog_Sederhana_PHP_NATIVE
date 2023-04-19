@@ -64,6 +64,10 @@ class Web{
                         break;
 
                         case '/profil/user':
+                            if($_SESSION['login'] == false){
+                                header('Location: /login');
+                                exit();
+                            }
                             $this->Route('UserController', 'viewProfilUser');
                         break;
 
