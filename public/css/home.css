@@ -19,7 +19,8 @@
     display: flex;
     align-items: center;
     padding: 10px 7px;
-    font-size: 16px;
+    font-size: 14px;
+    font-weight: bold;
 }
 .post-header a{
     display: flex;
