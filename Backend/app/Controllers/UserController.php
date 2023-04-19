@@ -12,18 +12,17 @@ class UserController extends Controller{
             header('Location:'.$_SERVER['HTTP_REFERER']);
             exit();
         }
-        $model = new Postingan;
-        $data = $model->customWhere("SELECT id_postingan,
-                                            user_id,
-                                            gambar
-                                            FROM postingan 
-                                     WHERE user_id={$_SESSION['id']}
-                                     ORDER BY id_postingan DESC");
+        $user = new User();
+        $getUser = $user->getUser($_SESSION['id']);
+        
+        $postingan = new postingan();
+        $getPost = $postingan->getUserPostingan($_SESSION['id']);
 
         return Controller::view('profil/index',[
             'title' => 'Profil Saya',
             'css'   => 'profil',
-            'post'  => $data
+            'post'  => $getPost,
+            'user'  => $getUser
         ]);
     }
 

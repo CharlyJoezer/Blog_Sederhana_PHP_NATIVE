@@ -17,11 +17,11 @@ require_once '../Backend/app/Views/Template/navbar.php';
                 <div class="text-count">Postingan</div>
             </div>
             <div class="follower-count">
-                <div class="count">0</div>
+                <div class="count"><?= $data['user']['jm'] ?></div>
                 <div class="text-count">Mengikuti</div>
             </div>
             <div class="follow-count">
-                <div class="count">0</div>
+                <div class="count"><?= $data['user']['jd'] ?></div>
                 <div class="text-count">Diikuti</div>
             </div>
         </div>
