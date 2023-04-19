@@ -32,8 +32,15 @@ class User{
     }
 
     public function getUser($id){
-        $this->db->query("SELECT id_user,username,role,foto_profil,id_pengikut FROM users
-                           LEFT OUTER JOIN pengikut ON pengikut.mengikuti_id={$_SESSION['id']} AND pengikut.diikuti_id=:id WHERE id_user=:id");
+        $this->db->query("SELECT id_user,
+                                username,
+                                foto_profil,
+                                pengikut.id_pengikut as check_flw,
+                                (SELECT COUNT(*) FROM pengikut WHERE diikuti_id=:id ) AS jm,
+                                (SELECT COUNT(*) FROM pengikut WHERE mengikuti_id=:id ) AS jd
+                        FROM users
+                        LEFT OUTER JOIN pengikut ON pengikut.mengikuti_id={$_SESSION['id']} AND pengikut.diikuti_id=:id
+                        WHERE id_user=:id");
         $this->db->bind('id', $id);
         $this->db->execute();
         return $this->db->single();
