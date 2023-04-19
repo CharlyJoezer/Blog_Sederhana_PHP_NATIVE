@@ -42,7 +42,6 @@ require_once '../Backend/app/Views/Template/navbar.php';
 </div>
 
 
-<script src="/js/postingan_event.js"></script>
 <?php 
 require_once '../Backend/app/Views/Template/footer.php';
 ?>
