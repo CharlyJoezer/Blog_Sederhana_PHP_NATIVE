@@ -71,6 +71,10 @@ class Web{
                             $this->Route('UserController', 'viewProfilUser');
                         break;
 
+                        case '/profil/user/image':
+                            $this->Route('UserController', 'getImage');
+                        break;
+
                         default:
                         header('HTTP/1.1 404 Not Found');
                         exit();
@@ -102,6 +106,14 @@ class Web{
                                 exit();
                             }
                             $this->Route('PostController', 'createPost');
+                        break;
+                        case '/profil/edit':
+                            if(!isset($_SESSION['login'])){
+                                header("HTTP/1.1 401 Unauthorized");
+                                echo json_encode(['status' => false, 'code' => '401 Unauthorized']);
+                                exit();
+                            }
+                            $this->Route('UserController', 'updateUser');
                         break;
 
 

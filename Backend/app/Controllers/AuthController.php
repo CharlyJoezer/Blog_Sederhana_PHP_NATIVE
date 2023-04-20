@@ -24,6 +24,7 @@ class AuthController extends Controller{
                     $_SESSION["login"] = true;
                     $_SESSION["id"] = $getUser['id_user'];
                     $_SESSION["username"] = $username;
+                    $_SESSION["image"] = $getUser['foto_profil'];
                     $_SESSION['message']['success'] = 'Welcome';
                     header('Location: /');
                     exit();

@@ -55,7 +55,6 @@ class PostController extends Controller{
         header("Content-Type: image/jpeg");
         $gambar_data = file_get_contents("../Backend/Storage/image/".$_GET['image']);
         echo $gambar_data;
-        
     }
 
     public function deletePost(){

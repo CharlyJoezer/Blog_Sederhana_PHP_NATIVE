@@ -53,6 +53,21 @@ class User{
         $this->db->execute();
         return $this->db->getAll();
     }
+
+    public function updateUser($data){
+        if($data['image'] == null){
+            $this->db->query("UPDATE users SET username=:username WHERE id_user=:id");
+            $this->db->bind('username', $data['username']);
+        }else{
+            $this->db->query("UPDATE users SET username=:username, foto_profil=:fp WHERE id_user=:id");
+            $this->db->bind('username', $data['username']);
+            $this->db->bind('fp', $data['image']);
+            $_SESSION["image"] = $data['image'];
+        }
+        $_SESSION["username"] = $data['username'];
+        $this->db->bind('id', $data['id']);
+        $this->db->execute();
+    }
 }
 
 ?>
