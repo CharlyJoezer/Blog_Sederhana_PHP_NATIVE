@@ -79,3 +79,116 @@
     font-weight: regular;
     color: #888;
 }
+
+
+.box-popup{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    height: 100%;
+    box-sizing: border-box;
+    transform: translateY(100%);
+    border: 1px solid #ccc;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    background-color: white;
+    transition: 0.4s;
+    display: none;
+    flex-direction: column;
+}
+.box-popup.active{
+    transform: translateY(0);
+}
+.box-popup .h-popup{
+    text-align: center;
+    position: relative;
+    padding: 8px;
+    box-sizing: border-box;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
+.box-popup .cls-btn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    bottom: 0;
+    cursor: pointer;
+    font-size: 15px;
+}
+.c-popup{
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    height: 100%;
+    overflow: auto;
+}
+.list-cmt{
+    display: flex;
+    flex-direction: column;
+}
+.box-cmt{
+    padding: 2px 0px;
+    margin-bottom: 5px;
+    display: flex;
+}
+.box-cmt img {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    margin-right: 8px;
+    box-shadow: 0 0 1px #ccc;
+}
+.user-desc{
+    line-height: 1;
+    padding-top: 7px;
+}
+.box-cmt .usr-name{
+    font-weight: bold;
+    font-size: 13px;
+}
+.box-cmt .cmt-text{
+    color: #555;
+    font-size: 12px;
+    font-weight: 300;
+}
+.send-comment {
+    height: 50px;
+    border-top: 1px solid #ccc;
+}
+.send-comment form{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.send-comment .btn-send-cmt{
+    padding: 5px 10px;
+    color: rgb(0, 168, 180);
+    cursor: pointer;
+    font-size: 14px
+}
+.send-comment input {
+    width: 100%;
+    height: 100%;
+    padding-left: 15px;
+    font-size: 13px;
+    box-sizing: border-box;
+    border: none;
+    border-right: 1px solid #ccc;
+    outline: none;
+}
+.cmt-null{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}

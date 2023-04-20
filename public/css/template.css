@@ -142,6 +142,10 @@ body{
      .box-post {
          width: 100%;
      }
+     .box-popup{
+      width: 50%;
+      margin: 0 auto;
+     }
  }
  @media screen and (min-width: 1000px){
      body{
@@ -150,5 +154,9 @@ body{
      }
      .box-post {
          width: 100%;
+     }
+     .box-popup{
+      width: 30%;
+      margin: 0 auto;
      }
  }

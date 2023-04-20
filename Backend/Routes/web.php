@@ -134,6 +134,22 @@ class Web{
                                 exit();
                             }
                             $this->Route('UserController', 'apiFollow');
+                        break;
+
+                        case '/api/postingan/get-comment':
+                            $this->Route('CommentController', 'getComment');
+                        break;
+
+                        case '/api/postingan/send-comment':
+                            if(!isset($_SESSION['login'])){
+                                header("HTTP/1.1 401 Unauthorized");
+                                echo json_encode(['status' => false, 'code' => '401 Unauthorized']);
+                                exit();
+                            }
+                            $this->Route('CommentController', 'createComment');
+                        break;
+
+
                         default:
                         header('HTTP/1.1 404 Not Found');
                         exit();

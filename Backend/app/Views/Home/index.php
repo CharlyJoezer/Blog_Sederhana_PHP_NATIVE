@@ -26,7 +26,7 @@
               <?php else:?>
                 <i class="fa-solid fa-heart" style="color:red;" data-class="likes" data-status="true" attr_postingan="<?= $item['id_postingan'] ?>"></i> 
               <?php endif;?>
-              <i class="fa-regular fa-comment-dots"></i>  
+              <i class="fa-regular fa-comment-dots" data-class="comment" attr-postingan="<?= $item['id_postingan'] ?>"></i>  
             </div>
             <div class="post-caption">
               <div class="post-by"><?= $item['username'] ?></div>
@@ -40,6 +40,24 @@
 
       <?php endforeach;?>
 
+    </div>
+</div>
+
+<div class="box-popup">
+    <div class="h-popup">
+        <div class="mtext">Komentar</div>
+        <div class="cls-btn">&#9587;</div>
+    </div>
+    <div class="c-popup">
+        <div class="list-cmt">
+
+        </div>
+    </div>
+    <div class="send-comment">
+      <form>
+        <input id="input-comment" type="text" name="comment" placeholder="Tulis Komentar....">
+        <div class="btn-send-cmt">Send</div>
+      </form>
     </div>
 </div>
 

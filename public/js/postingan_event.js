@@ -55,3 +55,68 @@ $("div").find(`[data-class='likes']`).click(function(){
 $('.post-image').dblclick(function(){
      $(this).parent().find('.post-desc').find('.post-info').find('.fa-heart').trigger('click')
 })
+
+// GET COMMENT
+$("div").find(`[data-class='comment']`).click(function(){
+  $('.list-cmt').html('')
+  $('.btn-send-cmt').attr('attr-postingan',$(this).attr('attr-postingan')); 
+  $('.box-popup').css('display', 'flex')
+  $('body').css('overflow-y', 'hidden')
+  setTimeout(() => {
+    $('.box-popup').addClass('active')
+  }, 1);
+
+  $.ajax({
+    url:'/api/postingan/get-comment',
+    method: 'POST',
+    dataType: 'JSON',
+    data: {
+      id: $(this).attr('attr-postingan')
+    },
+    success: function(data){
+      if(data.data.length == 0){
+        $('.list-cmt').html('<div class="cmt-null">Belum ada comment!</div>')
+      }else{
+        for(i = 0; i < data.data.length; i++)
+        $('.list-cmt').append(`
+        <div class="box-cmt">
+          <div><img src="/profil/user/image?image=`+data.data[i]['foto_profil']+`" alt=""></div>
+          <div class="user-desc">
+            <div class="usr-name">`+data.data[i]['username']+`</div>
+            <div class="cmt-text">`+data.data[i]['comment']+`</div>
+          </div>
+        </div>
+        `)
+      }
+    }
+  })
+  
+  $('.cls-btn').click(function(){
+    $('.box-popup').removeClass('active')
+    setTimeout(() => {
+        $('.box-popup').css('display', 'none')
+        $('body').css('overflow-y', 'scroll')
+        }, 400);
+  });
+})
+
+// SEND COMMENT
+$('.btn-send-cmt').click(function(){
+  const getComment = $('#input-comment').val()
+  if(getComment.replace(/ /g, '') == ''){
+    return false;
+  }
+  $('#input-comment').val('')
+  $.ajax({
+    url:'/api/postingan/send-comment',
+    method: 'POST',
+    dataType: 'JSON',
+    data: {
+      id: $(this).attr('attr-postingan'),
+      comment: getComment
+    },
+    success:function(){
+      $('.cls-btn').trigger('click')
+    }
+  })
+})
