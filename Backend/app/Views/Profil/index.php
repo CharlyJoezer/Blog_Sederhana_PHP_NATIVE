@@ -7,7 +7,11 @@ require_once '../Backend/app/Views/Template/navbar.php';
     <div class="header-profil">
         <div class="profil-data">
             <div class="profil-image">
-                <img src="/profil/user/image?image=<?= $_SESSION['image'] ?>" alt="">
+                <?php if(isset($_SESSION['image'])):?>
+                    <img src="/profil/user/image?image=<?= $_SESSION['image'] ?>" alt="">
+                <?php else:?>
+                    <img src="/profil/user/image?image=default.png" alt="">
+                <?php endif;?>
             </div>
             <div class="profil-name"><?= $auth['username'] ?></div>
         </div>

@@ -17,7 +17,7 @@ class Postingan{
     
     public function getAll(){
         if(isset($_SESSION['login'])){
-            $this->db->query("SELECT id_user,id_postingan,gambar,caption,username,postingan.created_at,like_postingan.id_like FROM postingan 
+            $this->db->query("SELECT id_user,id_postingan,gambar,caption,username,postingan.created_at,like_postingan.id_like,users.foto_profil FROM postingan 
                               JOIN users ON postingan.user_id = users.id_user
                               LEFT OUTER JOIN like_postingan ON postingan.id_postingan=like_postingan.postingan_id AND ".$_SESSION['id']."=like_postingan.userlike_id
                               ORDER BY id_postingan DESC");
@@ -87,6 +87,7 @@ class Postingan{
                                 gambar,
                                 caption,
                                 users.username,
+                                users.foto_profil,
                                 postingan.created_at
                                 FROM postingan 
                         JOIN users ON users.id_user=postingan.user_id

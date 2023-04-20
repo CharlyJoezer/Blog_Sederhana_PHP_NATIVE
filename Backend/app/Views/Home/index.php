@@ -8,7 +8,11 @@
         <div class="box-post">
           <div class="post-header">
             <a href="/profil/user?id=<?= $item['id_user']?>">
-              <img src="https://i0.wp.com/dianisa.com/wp-content/uploads/2022/08/18.-Profil-WA-Kosong.jpg?resize=1000%2C580&ssl=1" alt="">
+              <?php if(isset($item['foto_profil'])):?>
+                <img src="/profil/user/image?image=<?= $item['foto_profil'] ?>" alt="">
+              <?php else:?>
+                <img src="/profil/user/image?image=default.png" alt="">
+              <?php endif;?>
               <div class="posted-by"><?= $item['username'] ?></div>
             </a>
           </div>

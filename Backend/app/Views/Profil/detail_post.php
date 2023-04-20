@@ -5,7 +5,11 @@ require_once '../Backend/app/Views/Template/navbar.php';
 <div class="box-post">
      <div class="post-header">
           <div class="posted-by">
-               <img src="https://i0.wp.com/dianisa.com/wp-content/uploads/2022/08/18.-Profil-WA-Kosong.jpg?resize=1000%2C580&ssl=1" alt="">
+               <?php if(isset($item['foto_profil'])):?>
+                    <img src="/profil/user/image?image=<?= $item['foto_profil'] ?>" alt="">
+               <?php else:?>
+                    <img src="/profil/user/image?image=default.png" alt="">
+               <?php endif;?>
                <div><?= $data['post']['username'] ?></div>    
           </div>
           <?php if(isset($_SESSION['login'])):?>
