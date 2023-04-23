@@ -26,11 +26,11 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" required name="password" class="form-control" id="password" autocomplete="off" />
               </div>
-              <div class="d-grid">
+              <div class="d-grid confirm-and-link">
                 <button type="submit" class="btn btn-primary text-dark main-bg">Masuk <i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+                <div style="text-align: center;padding-top:10px;font-size:12px;">Belum punya akun ?, <a  href="/register">Daftar</a></div>
               </div>
             </form>
-            <div class="link-register" style="text-align: center;padding-top:10px;font-size:12px;">Belum punya akun ?, <a  href="/register">Daftar</a></div>
             
           </div>
         </div>
